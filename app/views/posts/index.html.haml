@@ -1,8 +1,4 @@
-%h1 Listing posts
-
+%h1 Recent Posts
 %ul
   - @posts.each do |post|
     %li= link_to "#{post.title}", post
-%br
-
-= link_to 'New Post', new_post_path

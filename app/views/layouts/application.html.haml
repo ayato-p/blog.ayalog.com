@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title (define ayalog '())
+    %title ayalog
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "href" => "http://junit.org/stylesheets/pygment_trac.css"
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -11,7 +11,7 @@
     %header
       .container
         %h1
-          (define ayalog '())
+          ayalog
         %h2
           あやぴーの日記
     .container
@@ -19,6 +19,6 @@
         = yield
     %footer
       .container
-        %p hogehoge
-
-
+        %strong ayalog - blog.ayalog.com
+        %p=
+          link_to "@ayato_p", "https://twitter.com/ayato_p"
