@@ -6,4 +6,5 @@ ayato_p = User.create name: 'ayato_p'
 
 ayalog = ayato_p.create_blog title: 'ayalog'
 
-ayalog.posts.create title: 'Hello', content: 'Hello, world!!'
+post1 = ayalog.posts.create title: 'Hello', content: 'Hello, world!!'
+post2 = ayalog.posts.create title: 'Good bye', content: 'good bye'
