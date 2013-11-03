@@ -1,2 +1,2 @@
 %h2= "Title: #{@post.title}"
-= @post.content
+= sanitize(@post.content)
