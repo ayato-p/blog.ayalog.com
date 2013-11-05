@@ -1,9 +1,8 @@
 BlogAyalogCom::Application.routes.draw do
   root 'posts#index'
 
-  resources :blogs
-
-  resources :users
+  # resources :blogs
+  # resources :users
 
   resources :posts
 

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:new, :create, :edit]
 
   # GET /posts
   # GET /posts.json
@@ -71,4 +72,11 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:blog_id, :user_id, :title, :content, :category_id)
     end
+
+  private
+  def authorize
+    unless User.find_by_id(session[:user_id])
+      redirect_to root_path
+    end
+  end
 end

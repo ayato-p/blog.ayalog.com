@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'haml-rails'
-gem 'rb-readline'
+gem 'rb-readline', '~> 0.4.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
