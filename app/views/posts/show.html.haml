@@ -1,2 +1,3 @@
 %h2= "Title: #{@post.title}"
-.content= sanitize(@post.content)
+.content= simple_format sanitize(@post.content)
+%p= "作成日:#{date_jp @post.created_at} / 更新日:#{date_jp @post.updated_at}"

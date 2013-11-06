@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class SessionControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get login" do
+    get :login
+    assert_response :success
+  end
+
 end
