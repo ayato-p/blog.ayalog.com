@@ -1,14 +1,17 @@
 BlogAyalogCom::Application.routes.draw do
+  root 'posts#index'
+
   get "admin/index"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
-  root 'posts#index'
+  get 'category/:category_id' => 'categories#post_list', as: :category_post_list
 
   # resources :blogs
   # resources :users
 
   resources :posts
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

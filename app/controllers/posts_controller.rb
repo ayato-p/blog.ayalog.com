@@ -73,10 +73,9 @@ class PostsController < ApplicationController
       params.require(:post).permit(:blog_id, :user_id, :title, :content, :category_id)
     end
 
-  private
-  def authorize
-    unless User.find_by_id(session[:user_id])
-      redirect_to root_path
+    def authorize
+      unless User.find_by_id(session[:user_id])
+        redirect_to root_path
+      end
     end
-  end
 end
