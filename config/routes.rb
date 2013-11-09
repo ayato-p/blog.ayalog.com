@@ -2,10 +2,14 @@ BlogAyalogCom::Application.routes.draw do
   root 'posts#index'
 
   get "admin/index"
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get 'category/:category_id' => 'categories#post_list', as: :category_post_list
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  get 'category/:category_title' => 'categories#post_list', as: :category_post_list
 
   # resources :blogs
   resources :users
