@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+require 'bcrypt'
+
 User.destroy_all
 Blog.destroy_all
 Post.destroy_all
 
-ayato_p = User.create name: 'ayato_p'
+ayato_p = User.create name: 'ayato_p', password: 'test', password_confirmation: 'test'
 
 ayalog = ayato_p.create_blog title: 'ayalog'
 
@@ -13,11 +15,11 @@ post3 = ayalog.posts.create title: 'Welcome', content: 'welcome
 welocme', created_at: "2013-11-03 10:00:00"
 
 category1 = Category.create title: "日記"
-category2 = Category.create title: "テスト２"
+category2 = Category.create title: "雑談"
+
 
 Categorization.create post_id: 1, category_id: 1
-Categorization.create post_id: 1, category_id: 2
 Categorization.create post_id: 2, category_id: 1
 Categorization.create post_id: 2, category_id: 2
-Categorization.create post_id: 3, category_id: 1
 Categorization.create post_id: 3, category_id: 2
+

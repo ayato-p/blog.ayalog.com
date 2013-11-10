@@ -15,7 +15,9 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    user = User.find_by_id session[:user_id]
+    blog = user.blog
+    @post = Post.new blog_id: blog.id, user_id: user.id
   end
 
   # GET /posts/1/edit

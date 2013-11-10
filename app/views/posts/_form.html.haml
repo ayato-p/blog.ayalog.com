@@ -6,20 +6,15 @@
         - @post.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :blog_id
-    = f.number_field :blog_id
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
+
+  = f.hidden_field :blog_id
+  = f.hidden_field :user_id
   .field
     = f.label :title
     = f.text_field :title
   .field
     = f.label :content
     = f.text_area :content
-  .field
-    = f.label :category_id
-    = f.number_field :category_id
+
   .actions
     = f.submit 'Save'

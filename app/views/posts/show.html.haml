@@ -4,4 +4,4 @@
   categories:
   - @post.categories.each do |category|
     = link_to "#{category.title}", category_post_list_path(category.title)
-%p= "作成日:#{date_jp @post.created_at} / 更新日:#{date_jp @post.updated_at}"
+%p= "created:#{date_jp @post.created_at} / updated:#{date_jp @post.updated_at}"
