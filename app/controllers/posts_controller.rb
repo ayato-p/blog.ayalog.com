@@ -30,6 +30,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
+        @post.category_ids=params[:category_ids].uniq
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
@@ -43,8 +44,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      @post.category_ids=params[:category_ids].uniq.delete ""
       if @post.update(post_params)
+        @post.category_ids=params[:category_ids].uniq
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -72,8 +73,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:blog_id, :user_id, :title, :content,
-                                   categorization_attributes: [:id, :post_id, :category_id, :_destroy])
+      params.require(:post).permit(:blog_id, :user_id, :title, :content)
     end
 
     def authorize
