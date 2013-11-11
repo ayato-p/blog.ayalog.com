@@ -28,7 +28,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -44,6 +43,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
+      @post.category_ids=params[:category_ids].uniq.delete ""
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
@@ -72,7 +72,8 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:blog_id, :user_id, :title, :content, :category_id)
+      params.require(:post).permit(:blog_id, :user_id, :title, :content,
+                                   categorization_attributes: [:id, :post_id, :category_id, :_destroy])
     end
 
     def authorize
