@@ -2,6 +2,7 @@
 %html
   %head
     %title ayalog
+    = auto_discovery_link_tag :rss, "/xml/rss"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "href" => "http://junit.org/stylesheets/pygment_trac.css"
     = javascript_include_tag "application", "data-turbolinks-track" => true
