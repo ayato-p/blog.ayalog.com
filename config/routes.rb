@@ -1,4 +1,5 @@
 BlogAyalogCom::Application.routes.draw do
+  get "xml/rss"
   root 'posts#index'
 
   get "admin/index"
